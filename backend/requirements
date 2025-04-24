@@ -1,0 +1,5 @@
+fastapi
+uvicorn[standard]
+snowflake-connector-python
+databricks-sql-connector
+python-dotenv  # optional for local env support

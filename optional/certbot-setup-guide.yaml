@@ -1,0 +1,22 @@
+# Certbot Setup Guide for Ubuntu (NGINX + Let's Encrypt)
+
+# Step 1: Install Certbot and NGINX plugin
+sudo apt update
+sudo apt install certbot python3-certbot-nginx -y
+
+# Step 2: Ensure your NGINX config is correctly set
+# NGINX must be serving on port 80 for initial verification
+sudo nginx -t
+sudo systemctl restart nginx
+
+# Step 3: Run Certbot to obtain and install the SSL certificate
+sudo certbot --nginx -d yourdomain.com
+
+# Step 4: Follow prompts to allow Certbot to update your config
+# This will automatically add ssl_certificate and ssl_certificate_key entries
+
+# Step 5: Verify SSL
+https://yourdomain.com
+
+# Step 6: Auto-renewal check (cron is automatically added)
+sudo certbot renew --dry-run
